@@ -1,0 +1,38 @@
+# Disable directory browsing
+Options -Indexes
+
+# ----------------------------------------------------------------------
+# Rewrite engine
+# ----------------------------------------------------------------------
+
+<IfModule mod_rewrite.c>
+    Options +FollowSymlinks
+    RewriteEngine On
+
+    # Eğer CodeIgniter bir alt klasörde kuruluysa RewriteBase ayarını değiştirin
+    # Alt klasördeyse bu satırı etkinleştirin ve klasör adını yazın
+    RewriteBase /watch
+
+    # Eğer projeniz kök dizinde ise, RewriteBase satırını yorum satırı haline getirin
+    # RewriteBase /
+
+    # Checks to see if the user is attempting to access a valid file,
+    # such as an image or css document, if this isn't true it sends the
+    # request to the front controller, index.php
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ public/index.php/$1 [L]
+
+    # Ensure Authorization header is passed along
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+</IfModule>
+
+<IfModule !mod_rewrite.c>
+    # Eğer mod_rewrite etkin değilse tüm 404'ler index.php'ye yönlendirilsin
+    ErrorDocument 404 index.php
+</IfModule>
+
+# Disable server signature start
+ServerSignature Off
+# Disable server signature end
