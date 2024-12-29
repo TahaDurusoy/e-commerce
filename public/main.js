@@ -87,6 +87,26 @@ function addToCart(productName) {
   // Sepeti otomatik olarak aç
   cartModal.style.display = "block";
 }
+document.addEventListener('DOMContentLoaded', function () {
+  // Dropdown için gerekli event handler
+  const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+  dropdownToggles.forEach((toggle) => {
+    toggle.addEventListener('click', function (e) {
+      e.preventDefault();
+      const dropdownMenu = this.nextElementSibling;
+      dropdownMenu.classList.toggle('show');
+    });
+  });
+
+  // Sayfa tıklandığında dropdown'u kapat
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('.dropdown')) {
+      document.querySelectorAll('.dropdown-menu.show').forEach((menu) => {
+        menu.classList.remove('show');
+      });
+    }
+  });
+});
 
 // Ürünlerin Sepete Ekle butonlarına tıklama olayı
 document.querySelectorAll(".product__card .btn").forEach((button, index) => {

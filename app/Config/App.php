@@ -157,6 +157,8 @@ class App extends BaseConfig
      * @var array<string, string>
      */
     public array $proxyIPs = [];
+    public $sessionDriver = 'CodeIgniter\Session\Handlers\FileHandler';
+    public $sessionSavePath = WRITEPATH . 'session';
 
     /**
      * --------------------------------------------------------------------------

@@ -24,6 +24,7 @@ class Filters extends BaseConfig
         'honeypot'      => Honeypot::class,
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
+        'auth' => \App\Filters\AuthFilter::class,
     ];
 
     /**
@@ -33,18 +34,17 @@ class Filters extends BaseConfig
      * @var array<string, array<string, array<string, string>>>|array<string, array<string>>
      * @phpstan-var array<string, list<string>>|array<string, array<string, array<string, string>>>
      */
-    public array $globals = [
+    public $globals = [
         'before' => [
-            // 'honeypot',
-            // 'csrf',
-            // 'invalidchars',
+            // 'csrf', // Bu satırı yorum satırı haline getirin
         ],
         'after' => [
             'toolbar',
             // 'honeypot',
-            // 'secureheaders',
         ],
     ];
+
+
 
     /**
      * List of filter aliases that works on a
@@ -66,5 +66,7 @@ class Filters extends BaseConfig
      * Example:
      * 'isLoggedIn' => ['before' => ['account/*', 'profiles/*']]
      */
-    public array $filters = [];
+    public array $filters = [
+        'auth' => ['before' => ['admin/*']], // Admin rotasına erişimden önce auth filtresi çalışacak
+    ];
 }

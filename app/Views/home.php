@@ -8,7 +8,7 @@
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXhW+ALEwIH" crossorigin="anonymous"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"/>
     <!-- Projeye özel CSS -->
     <link rel="stylesheet" href="<?= base_url('styles.css'); ?>">
     <link rel="icon" type="image/x-icon" href="<?= base_url('saat.png'); ?>">
@@ -19,18 +19,36 @@
 <nav>
     <div class="nav__header">
         <div class="nav__logo">
-            <a href="<?= base_url('/'); ?>" class="logo">chronocraft</a> <!-- index.html yerine CodeIgniter rotası -->
+            <a href="<?= base_url('/'); ?>" class="logo">chronocraft</a>
         </div>
         <div class="nav__menu__btn" id="menu-btn">
             <i class="ri-menu-line"></i>
         </div>
     </div>
     <ul class="nav__links" id="nav-links">
-        <li><a href="<?= base_url('/'); ?>">Anasayfa</a></li> <!-- index.html yerine CodeIgniter rotası -->
-        <li><a href="<?= base_url('products'); ?>">Mağaza</a></li> <!-- product.html yerine CodeIgniter rotası -->
-        <li><a href="<?= base_url('about'); ?>">Hakkımızda</a></li> <!-- about.html yerine CodeIgniter rotası -->
+        <li><a href="<?= base_url('/'); ?>">Anasayfa</a></li>
+        <li><a href="<?= base_url('products'); ?>">Mağaza</a></li>
+        <li><a href="<?= base_url('about'); ?>">Hakkımızda</a></li>
         <li><a href="#contact">İletişim</a></li>
-        <li><a href="<?= base_url('login'); ?>">Giriş Yap</a></li> <!-- login.html yerine CodeIgniter rotası -->
+        <?php if (session()->get('user')): ?>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                    Hoşgeldiniz, <?= session()->get('user')['name']; ?>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <?php if (session()->get('user')['role'] === 'admin'): ?>
+                        <li><a class="dropdown-item" href="<?= base_url('admin'); ?>">Yönetim Paneli</a></li>
+
+                    <?php endif; ?>
+
+
+                    <li><a class="dropdown-item" href="<?= base_url('logout?redirect=' . current_url()); ?>">Çıkış Yap</a></li>
+
+                </ul>
+            </li>
+        <?php else: ?>
+            <li><a href="<?= base_url('login'); ?>">Giriş Yap</a></li>
+        <?php endif; ?>
     </ul>
     <div class="nav__search" id="nav-search">
         <input type="text" placeholder="Search" />
@@ -58,7 +76,7 @@
     <div class="section__container footer__container">
         <div class="footer__col">
             <div class="footer__logo">
-                <a href="<?= base_url('/'); ?>" class="logo">chronocraft</a> <!-- Anasayfaya giden link CodeIgniter rotası -->
+                <a href="<?= base_url('/'); ?>" class="logo">chronocraft</a>
             </div>
             <p>
                 Zarafeti ve fonksiyonelliği bir araya getiren saatlerle zamanınızı
@@ -104,10 +122,9 @@
 </footer>
 
 <!-- Projeye özel CSS ve JS -->
-<script src="<?= base_url('main.js'); ?>"></script> <!-- JS dosyasını ekledik -->
-<!-- Diğer harici scriptler -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
+<script src="<?= base_url('main.js'); ?>"></script>
 </body>
 </html>
