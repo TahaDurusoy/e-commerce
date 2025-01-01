@@ -1,0 +1,1 @@
+__ci_last_regenerate|i:1735735005;_ci_previous_url|s:45:"http://localhost/watch/public/index.php/admin";isLoggedIn|b:1;user|a:3:{s:2:"id";C:21:"MongoDB\BSON\ObjectId":48:{a:1:{s:3:"oid";s:24:"676c0385516400008a005923";}}s:4:"name";s:5:"ADMIN";s:4:"role";s:5:"admin";}__ci_vars|a:1:{s:5:"error";s:3:"old";}error|s:66:"Ürünler yüklenirken bir hata oluştu: Undefined variable: users";

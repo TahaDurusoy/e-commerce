@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Remixicon -->
+  
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
-    <!-- Swiper CSS -->
+   
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-    <!-- Bootstrap CSS -->
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"/>
-    <!-- Projeye özel CSS -->
+    
     <link rel="stylesheet" href="<?= base_url('styles.css'); ?>">
     <link rel="icon" type="image/x-icon" href="<?= base_url('saat.png'); ?>">
 
@@ -58,8 +58,7 @@
 
 <header class="section__container header__container" id="home">
     <div class="header__image">
-        <img style="border-radius: 10px" src="<?= base_url('images/cover.jpg'); ?>" alt="header"/> <!-- Görsel yolu düzenlendi -->
-    </div>
+        <img style="border-radius: 10px" src="<?= base_url('images/cover.jpg'); ?>" alt="header"/> 
     <div class="header__content">
         <div style="border-radius: 10px">
             <h1>Saatlerinizle Tarzınızı Yansıtın</h1>
@@ -121,7 +120,7 @@
     </div>
 </footer>
 
-<!-- Projeye özel CSS ve JS -->
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

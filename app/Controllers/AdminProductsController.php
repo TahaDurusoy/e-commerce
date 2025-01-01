@@ -14,7 +14,6 @@ class AdminProductsController extends BaseController
         $this->mongoDB = new MongoDBLibrary();
     }
 
-    // Show all products
     public function index()
     {
         try {
@@ -25,7 +24,6 @@ class AdminProductsController extends BaseController
         }
     }
 
-    // Show edit product page
     public function edit($id)
     {
         try {
@@ -39,7 +37,6 @@ class AdminProductsController extends BaseController
         }
     }
 
-    // Update product details
     public function update($id)
     {
         try {
@@ -47,16 +44,14 @@ class AdminProductsController extends BaseController
             $price = $this->request->getPost('price');
             $image = $this->request->getFile('image');
 
-            // Slug oluşturma
             $slug = url_title($productCode, '-', true);
 
             $updateData = [
                 'product_code' => $productCode,
                 'price' => $price,
-                'slug' => $slug, // Slug alanı eklendi
+                'slug' => $slug, 
             ];
 
-            // Handle image upload if a new image is provided
             if ($image && $image->isValid() && !$image->hasMoved()) {
                 $imageName = $image->getRandomName();
                 $image->move(FCPATH . 'images', $imageName);
@@ -70,7 +65,6 @@ class AdminProductsController extends BaseController
         }
     }
 
-    // Add a new product
     public function add()
     {
         if ($this->request->getMethod() === 'post') {
@@ -79,7 +73,6 @@ class AdminProductsController extends BaseController
                 $price = $this->request->getPost('price');
                 $image = $this->request->getFile('image');
 
-                // Slug oluşturma
                 $slug = url_title($productCode, '-', true);
 
                 if ($image && $image->isValid() && !$image->hasMoved()) {
@@ -92,7 +85,7 @@ class AdminProductsController extends BaseController
                 $this->mongoDB->insert('products', [
                     'product_code' => $productCode,
                     'price' => $price,
-                    'slug' => $slug, // Slug alanı eklendi
+                    'slug' => $slug, 
                     'image' => $imageName,
                 ]);
 
@@ -105,11 +98,9 @@ class AdminProductsController extends BaseController
         return view('admin/products/add');
     }
 
-    // Delete a product
     public function delete($id)
     {
         try {
-            // MongoDB'den ürün silme
             $result = $this->mongoDB->delete('products', ['_id' => new \MongoDB\BSON\ObjectId($id)]);
 
             if ($result->getDeletedCount() > 0) {

@@ -1,8 +1,8 @@
 <?php
-// JSON Dosyasını Yükleme
+
 $jsonPath = APPPATH . 'Data/products.json';
 $jsonData = file_get_contents($jsonPath);
-$products = json_decode($jsonData, true); // Array formatında elde etmek için
+$products = json_decode($jsonData, true); 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,11 +39,11 @@ $products = json_decode($jsonData, true); // Array formatında elde etmek için
         </div>
     </div>
     <ul class="nav__links" id="nav-links">
-        <li><a href="<?= base_url('/'); ?>">Anasayfa</a></li> <!-- index.html yerine CodeIgniter rotası -->
-        <li><a href="<?= base_url('products'); ?>">Mağaza</a></li> <!-- product.html yerine CodeIgniter rotası -->
-        <li><a href="<?= base_url('about'); ?>">Hakkımızda</a></li> <!-- about.html yerine CodeIgniter rotası -->
+        <li><a href="<?= base_url('/'); ?>">Anasayfa</a></li> 
+        <li><a href="<?= base_url('products'); ?>">Mağaza</a></li> 
+        <li><a href="<?= base_url('about'); ?>">Hakkımızda</a></li> 
         <li><a href="#contact">İletişim</a></li>
-        <li><a href="<?= base_url('login'); ?>">Giriş Yap</a></li> <!-- login.html yerine CodeIgniter rotası -->
+        <li><a href="<?= base_url('login'); ?>">Giriş Yap</a></li> 
     </ul>
     <div class="nav__search" id="nav-search">
         <input type="text" placeholder="Search" />

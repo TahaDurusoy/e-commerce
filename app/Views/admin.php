@@ -42,7 +42,7 @@
 <div class="section__container">
     <h1 class="section__header">Yönetim Paneli</h1>
 
-    <!-- Ürün Yönetimi -->
+ 
     <div class="mb-5">
         <h2 class="section__header">Ürün Yönetimi</h2>
         <table class="table table-bordered">
@@ -50,7 +50,7 @@
             <tr>
                 <th>#</th>
                 <th>Ürün Kodu</th>
-                <th>Slug</th> <!-- Slug gösterimi eklendi -->
+                <th>Slug</th> 
                 <th>Fiyat</th>
                 <th>İşlemler</th>
             </tr>
@@ -60,7 +60,7 @@
                 <tr>
                     <td><?= (string) $product['_id']; ?></td>
                     <td><?= $product['product_code'] ?? 'Ürün Kodu Yok'; ?></td>
-                    <td><a href="<?= base_url('products/' . $product['slug']); ?>"><?= $product['slug'] ?? 'Slug Yok'; ?></a></td> <!-- Slug gösterimi -->
+                    <td><a href="<?= base_url('products/' . $product['slug']); ?>"><?= $product['slug'] ?? 'Slug Yok'; ?></a></td> 
                     <td>₺<?= number_format($product['price'] ?? 0, 2); ?></td>
                     <td>
                         <a href="<?= base_url('admin/products/edit/' . (string) $product['_id']); ?>" class="btn btn-warning btn-sm">Düzenle</a>
@@ -73,7 +73,6 @@
         <a href="<?= base_url('admin/products/add'); ?>" class="btn btn-primary">Yeni Ürün Ekle</a>
     </div>
 
-    <!-- Kullanıcı Yönetimi -->
     <div>
         <h2 class="section__header">Kullanıcı Yönetimi</h2>
         <table class="table table-bordered">
@@ -119,7 +118,7 @@
 
         deleteButtons.forEach(button => {
             button.addEventListener('click', function (event) {
-                event.preventDefault(); // Varsayılan davranışı engelle
+                event.preventDefault(); 
                 const deleteUrl = this.getAttribute('href');
 
                 if (confirm('Bu ürünü silmek istediğinize emin misiniz?')) {
@@ -146,7 +145,6 @@
 
 </script>
 
-<!-- Projeye özel CSS ve JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="<?= base_url('main.js'); ?>"></script>
 </body>

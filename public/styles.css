@@ -30,7 +30,6 @@
   color: #7e7e7e;
 }
 
-/* Dropdown Menü */
 .dropdown {
   position: relative;
 }
@@ -77,31 +76,29 @@
 }
 
 input::placeholder {
-  color: black; /* Input elemanlarındaki placeholder rengini siyah yapar */
+  color: black;
 }
 
-
 ::placeholder {
-  color: #000000; /* Siyah renk */
-  opacity: 1; /* Opaklık (görünürlüğü tam olarak sağlamak için) */
+  color: #000000;
+  opacity: 1;
 }
 
 .form-control::-webkit-input-placeholder {
-  color: #000000; /* Safari ve Chrome için */
+  color: #000000;
 }
 
 .form-control:-ms-input-placeholder {
-  color: #000000; /* Internet Explorer 10+ için */
+  color: #000000;
 }
 
 .form-control::-ms-input-placeholder {
-  color: #000000; /* Microsoft Edge için */
+  color: #000000;
 }
 
 .form-control::placeholder {
-  color: #000000; /* Diğer modern tarayıcılar için */
+  color: #000000;
 }
-
 
 .section__description {
   font-size: 1.1rem;

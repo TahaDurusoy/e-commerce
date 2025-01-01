@@ -19,19 +19,16 @@ class AuthController extends BaseController
             $email = $this->request->getPost('email');
             $password = $this->request->getPost('password');
 
-            // Kullanıcıyı MongoDB'de bul
             $user = $this->mongoDB->findOne('users', ['email' => $email]);
 
             if (!$user) {
                 return redirect()->back()->with('error', 'Kullanıcı bulunamadı.');
             }
 
-            // Şifreyi doğrula
             if (!password_verify($password, $user['password'])) {
                 return redirect()->back()->with('error', 'Hatalı şifre.');
             }
 
-            // Oturum başlat
             session()->set('user', [
                 'id' => (string)$user['_id'],
                 'name' => $user['name'],

@@ -59,7 +59,6 @@
             <form action="<?= base_url('register'); ?>" method="post">
                 <h1 class="h3 mb-3 fw-normal">Chronocraft ile zaman serüvenine katıl!</h1>
 
-                <!-- Hata Mesajları -->
                 <?php if (session()->has('errors')): ?>
                     <div class="alert alert-danger">
                         <ul>
@@ -70,7 +69,6 @@
                     </div>
                 <?php endif; ?>
 
-                <!-- Başarı Mesajı -->
                 <?php if (session()->getFlashdata('success')): ?>
                     <div class="alert alert-success">
                         <?= session()->getFlashdata('success'); ?>

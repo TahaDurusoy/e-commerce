@@ -45,15 +45,13 @@ class Database extends Config
         'numberNative' => false,
     ];
 
-    /**
-     * MongoDB bağlantısı için yeni bir grup ekleniyor.
-     */
+    
     public array $mongo = [
         'hostname' => 'localhost',
         'port'     => 27017,
-        'username' => '',       // Eğer kullanıcı adı varsa buraya eklenmeli
-        'password' => '',       // Eğer şifre varsa buraya eklenmeli
-        'database' => 'ci4_mongo', // MongoDB veritabanı adı
+        'username' => '',       
+        'password' => '',       
+        'database' => 'ci4_mongo', 
     ];
 
     public function __construct()

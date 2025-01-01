@@ -53,9 +53,8 @@
     <div class="product__grid">
         <?php foreach ($products as $product): ?>
             <div class="product__card">
-                <h3><a href="<?= base_url('products/' . $product['slug']); ?>"><?= $product['product_code']; ?></a></h3> <!-- Slug eklendi -->
-                <p><?= word_limiter($product['description'] ?? 'Açıklama bulunmamaktadır.', 20); ?></p> <!-- Description sınırlı -->
-                <span>₺<?= number_format($product['price'], 2); ?></span>
+                <h3><a href="<?= base_url('products/' . $product['slug']); ?>"><?= $product['product_code']; ?></a></h3> 
+                <p><?= word_limiter($product['description'] ?? 'Açıklama bulunmamaktadır.', 20); ?></p> 
                 <img src="<?= base_url('images/' . $product['image']); ?>" alt="<?= $product['product_code']; ?>" />
                 <button type="button" class="btn btn-light">Sepete Ekle</button>
             </div>
@@ -111,7 +110,6 @@
     </div>
 </footer>
 
-<!-- Projeye özel CSS ve JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

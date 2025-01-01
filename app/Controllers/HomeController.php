@@ -6,11 +6,11 @@ class HomeController extends BaseController
 {
     public function index()
     {
-        return view('home'); // Ana sayfa görünümü (App/Views/home.php)
+        return view('home'); 
     }
 
     public function about()
     {
-        return view('about'); // Hakkımızda sayfası (App/Views/about.php)
+        return view('about'); 
     }
 }

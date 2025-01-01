@@ -20,28 +20,28 @@ class RegisterController extends BaseController
 
     public function register()
     {
-        // Form doğrulama kuralları
+      
         $rules = [
             'email' => 'required|valid_email',
             'password' => 'required|min_length[8]',
             'name' => 'required|min_length[3]',
         ];
 
-        // Doğrulama başarısız olursa hata mesajlarıyla geri dön
+      
         if (!$this->validate($rules)) {
             return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
         }
 
-        // Gelen verileri al
+    
         $name = $this->request->getPost('name');
         $email = $this->request->getPost('email');
         $password = $this->request->getPost('password');
         $role = $this->request->getPost('role') ?? 'user';
 
-        // Şifreyi hashleme
+       
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-        // MongoDB'ye kullanıcıyı ekleme
+       
         try {
             $this->mongoDB->insert('users', [
                 'name' => $name,
